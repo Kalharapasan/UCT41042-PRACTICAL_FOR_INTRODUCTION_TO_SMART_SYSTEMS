@@ -1,0 +1,27 @@
+smart_street_light/
+├── pubspec.yaml
+└── lib/
+    ├── main.dart                     ← App entry, Supabase init
+    ├── models/
+    │   └── street_light_log.dart     ← Data model + LedColor enum
+    ├── services/
+    │   └── street_light_service.dart ← Supabase queries
+    ├── screens/
+    │   └── dashboard_screen.dart     ← Full dashboard UI
+    └── widgets/
+        ├── led_indicator.dart        ← Animated RGB dot with glow
+        ├── intensity_gauge.dart      ← Semicircle arc gauge
+        └── history_tile.dart        ← Recent log rows
+		
+
+# 1. Create project
+flutter create smart_street_light
+cd smart_street_light
+
+# 2. Replace lib/ with these files, replace pubspec.yaml
+
+# 3. Install dependencies
+flutter pub get
+
+# 4. Run
+flutter run

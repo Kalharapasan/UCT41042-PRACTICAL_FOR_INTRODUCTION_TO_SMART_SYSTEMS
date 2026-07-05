@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Yasintha Alawathugoda",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 9.6, "left": -43.16, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -92.8,
+      "left": -316,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -138, "left": 205.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": -82.4,
+      "left": 279.5,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 227.2,
+      "left": 159.2,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h67.2", "v288" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h57.6", "v162.8", "h0", "v28.8" ] ],
+    [ "ldr1:AO", "esp:34", "green", [ "h38.4", "v220.1" ] ],
+    [ "led1:C", "esp:GND.3", "black", [ "v0" ] ],
+    [ "led1:A", "esp:5", "blue", [ "v0" ] ],
+    [ "rgb1:COM", "esp:GND.3", "black", [ "v0" ] ],
+    [ "rgb1:R", "esp:19", "red", [ "v0" ] ],
+    [ "rgb1:G", "esp:18", "green", [ "v0" ] ],
+    [ "rgb1:B", "esp:17", "blue", [ "v0" ] ],
+    [ "lcd1:GND", "esp:GND.3", "black", [ "h-28.8", "v-201.6" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-268.8", "v-9.5" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h-48", "v-211" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h-57.6", "v-230.1", "h-48" ] ]
+  ],
+  "dependencies": {}
+}

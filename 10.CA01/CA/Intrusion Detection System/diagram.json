@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "author": "Pasan Kalhara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 67.2, "left": 139.24, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -34.4,
+      "left": -122.58,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 50.4,
+      "left": -209.4,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -166.8, "left": 215, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -81.6,
+      "left": 210.65,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    { "type": "board-mfrc522", "id": "rfid1", "top": -31.45, "left": 358.64, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -47.8, "left": 48, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": -133.64, "left": 297.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -67.2, "left": 201, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pir1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pir1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "bz1:1", "esp:GND.1", "black", [ "v0" ] ],
+    [ "esp:13", "pir1:OUT", "blue", [ "h0" ] ],
+    [ "esp:14", "bz1:2", "green", [ "h0" ] ],
+    [ "esp:5", "rfid1:SDA", "orange", [ "h67.2", "v-172.8" ] ],
+    [ "esp:18", "rfid1:SCK", "purple", [ "h57.6", "v-153.6" ] ],
+    [ "esp:23", "rfid1:MOSI", "yellow", [ "h76.8", "v-67.2" ] ],
+    [ "esp:19", "rfid1:MISO", "#8f4814", [ "h86.4", "v-124.8" ] ],
+    [ "esp:22", "rfid1:RST", "green", [ "h96", "v-48" ] ],
+    [ "rfid1:GND", "esp:GND.2", "black", [ "h-124.8", "v9.6" ] ],
+    [ "rfid1:3.3V", "esp:3V3", "red", [ "h-86.4", "v-48", "h-134.4", "v9.6" ] ],
+    [ "esp:5V", "relay1:VCC", "red", [ "h-143.85", "v-297.6" ] ],
+    [ "esp:GND.1", "relay1:GND", "black", [ "h-124.65", "v-240" ] ],
+    [ "esp:27", "relay1:IN", "purple", [ "h-115.05", "v-192" ] ],
+    [ "led1:A", "r1:1", "red", [ "v0" ] ],
+    [ "r1:2", "vcc1:VCC", "red", [ "h0", "v18", "h28.8" ] ],
+    [ "led1:C", "relay1:NO", "black", [ "v0" ] ],
+    [ "gnd1:GND", "relay1:COM", "black", [ "v-9.6", "h-19.2", "v48" ] ]
+  ],
+  "dependencies": {}
+}
