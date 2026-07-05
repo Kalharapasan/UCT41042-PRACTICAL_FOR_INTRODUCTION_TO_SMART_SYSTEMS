@@ -1,5 +1,6 @@
 *.zip
 *.rar
 *.7z
-*.exe
-*.bin
+
+.pio/
+.vscode/
