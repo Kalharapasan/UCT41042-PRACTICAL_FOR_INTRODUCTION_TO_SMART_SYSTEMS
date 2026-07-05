@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "author": "Pasan Kalhara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -167.96, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "encoder1", "top": 40.1, "left": 56.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:18", "encoder1:CLK", "green", [ "h38.4", "v-86.4", "h230.4", "v19.2" ] ],
+    [ "esp:19", "encoder1:DT", "blue", [ "h28.8", "v-86.4", "h249.6", "v48" ] ],
+    [ "esp:5", "encoder1:SW", "orange", [ "h268.8", "v-38.4" ] ],
+    [ "encoder1:VCC", "esp:3V3", "red", [ "h48", "v-86", "h-403.2", "v38.4" ] ],
+    [ "esp:GND.1", "encoder1:GND", "black", [ "h-19.05", "v67.2", "h403.2", "v9.6" ] ]
+  ],
+  "dependencies": {}
+}

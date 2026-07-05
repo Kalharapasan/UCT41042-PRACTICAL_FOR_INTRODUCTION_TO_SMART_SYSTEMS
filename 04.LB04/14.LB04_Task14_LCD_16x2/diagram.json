@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Pasan Kalhara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 38.4, "left": -62.36, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -54.17, "left": 121.6, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 139.2,
+      "left": 258.65,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "lcd1:VSS", "black", [ "v0", "h38.4", "v28.8", "h76.8" ] ],
+    [ "esp:5V", "lcd1:VDD", "red", [ "h-28.65", "v38.4", "h259.2" ] ],
+    [ "esp:GND.2", "lcd1:V0", "black", [ "v0", "h38.4", "v28.8", "h96" ] ],
+    [ "esp:19", "lcd1:RS", "blue", [ "h153.6" ] ],
+    [ "esp:GND.2", "lcd1:RW", "black", [ "v0", "h38.4", "v28.8", "h115.2" ] ],
+    [ "esp:18", "lcd1:E", "orange", [ "h163.2" ] ],
+    [ "esp:17", "lcd1:D4", "purple", [ "h0" ] ],
+    [ "esp:16", "lcd1:D5", "cyan", [ "h230.4" ] ],
+    [ "esp:4", "lcd1:D6", "#8f4814", [ "h230.4" ] ],
+    [ "esp:2", "lcd1:D7", "orange", [ "h0" ] ],
+    [ "esp:5V", "r1:2", "red", [ "h-19.05", "v38.4", "h-9.6" ] ],
+    [ "lcd1:A", "r1:1", "red", [ "v0" ] ],
+    [ "esp:GND.2", "lcd1:K", "black", [ "v0", "h38.4", "v28.8", "h220.8" ] ]
+  ],
+  "dependencies": {}
+}

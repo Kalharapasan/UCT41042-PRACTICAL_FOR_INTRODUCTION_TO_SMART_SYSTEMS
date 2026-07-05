@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Pasan Kalhara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 19.2, "left": -110.36, "attrs": {} },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": -72.8,
+      "left": 135.5,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 14.4,
+      "left": 85.85,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 14.4,
+      "left": 143.45,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 14.4,
+      "left": 181.85,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "rgb1:R", "r1:1", "red", [ "v9.6", "h-28.8" ] ],
+    [ "rgb1:G", "r2:1", "green", [ "v19.2", "h10.9" ] ],
+    [ "rgb1:B", "r3:1", "blue", [ "v9.6", "h40" ] ],
+    [ "esp:GND.2", "rgb1:COM", "black", [ "v0", "h28.8", "v19.2", "h134.4" ] ],
+    [ "esp:5", "r1:2", "red", [ "h124.8", "v-9.6" ] ],
+    [ "esp:18", "r2:2", "green", [ "h172.8" ] ],
+    [ "esp:19", "r3:2", "blue", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}

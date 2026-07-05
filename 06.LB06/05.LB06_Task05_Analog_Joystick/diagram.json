@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "author": "Pasan Kalhara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 48, "left": 158.44, "attrs": {} },
+    { "type": "wokwi-analog-joystick", "id": "joystick1", "top": -10.2, "left": -33, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "joystick1:GND", "black", [ "h-124.65", "v-96" ] ],
+    [ "joystick1:VCC", "esp:3V3", "red", [ "v48", "h-76.8", "v-182.4", "h163.2", "v9.6" ] ],
+    [ "joystick1:VERT", "esp:34", "purple", [ "v38.4" ] ],
+    [ "joystick1:HORZ", "esp:35", "cyan", [ "v0" ] ],
+    [ "joystick1:SEL", "esp:5", "blue", [ "v163.2", "h249.6", "v-105.6" ] ]
+  ],
+  "dependencies": {}
+}

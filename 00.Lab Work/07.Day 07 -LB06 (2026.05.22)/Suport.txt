@@ -1,0 +1,12 @@
+01.LB07_LabWork_Task01_Temperature_Auotomation
+
+
+Labwork Temperature Automation
+
+#define BLYNK_TEMPLATE_NAME "Labwork Temperature Automation"
+#define BLYNK_AUTH_TOKEN "NtNK7WAVPcYsKf64rBWY533rMJ9cnwSC"
+
+NtNK7WAVPcYsKf64rBWY533rMJ9cnwSC
+
+#define BLYNK_TEMPLATE_ID "TMPL6OqEkyz2y"
+#define BLYNK_TEMPLATE_NAME "Labwork Temperature Automation"

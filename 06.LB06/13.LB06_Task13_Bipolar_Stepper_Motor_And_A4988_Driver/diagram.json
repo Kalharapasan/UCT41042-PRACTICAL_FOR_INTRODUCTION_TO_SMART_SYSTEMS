@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "Pasan Kalhara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -110.36, "attrs": {} },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": -53.99,
+      "left": 211.63,
+      "attrs": { "size": "17" }
+    },
+    { "type": "wokwi-a4988", "id": "drv1", "top": 24, "left": 72, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "drv1:2A", "stepper1:A-", "yellow", [ "h28.95", "v0.08", "h38.4", "v105.6", "h86.4" ] ],
+    [ "drv1:1A", "stepper1:A+", "orange", [ "h57.75", "v105.68", "h115.2" ] ],
+    [ "drv1:1B", "stepper1:B+", "magenta", [ "h48.15", "v105.68", "h124.8" ] ],
+    [ "drv1:2B", "stepper1:B-", "purple", [ "h19.35", "v144.08", "h9.6" ] ],
+    [ "drv1:RESET", "drv1:SLEEP", "green", [ "h-19.2", "v9.6" ] ],
+    [ "drv1:STEP", "esp:32", "#8f4814", [ "h-28.8", "v-105.6", "h-182.4", "v86.4" ] ],
+    [ "esp:19", "drv1:DIR", "blue", [ "h0" ] ],
+    [ "esp:5V", "drv1:VDD", "red", [ "h-19.05", "v19.2", "h259.2", "v-134.4" ] ],
+    [ "esp:GND.1", "drv1:GND.1", "black", [ "h-28.65", "v76.8", "h259.2" ] ]
+  ],
+  "dependencies": {}
+}

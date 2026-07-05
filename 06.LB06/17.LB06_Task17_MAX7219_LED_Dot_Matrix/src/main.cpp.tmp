@@ -1,0 +1,35 @@
+#include <Arduino.h>
+#include <MD_Parola.h>
+#include <MD_MAX72xx.h>
+#include <SPI.h>
+
+// Hardware setup - adjust MAX_DEVICES to match your physical chain
+#define HARDWARE_TYPE MD_MAX72XX::FC16_HW
+#define MAX_DEVICES 4
+const uint8_t CS_PIN = 5; // LOAD/CS pin
+
+// Use hardware SPI (MOSI=23, SCK=18 on ESP32 default)
+MD_Parola myDisplay = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("Parola scrolling text demo");
+
+  if (!myDisplay.begin()) {
+    Serial.println("myDisplay.begin() failed");
+    while (1) delay(1000);
+  }
+
+  // Brightness 0..15
+  myDisplay.setIntensity(8);
+
+  // Prepare the scrolling text. Adjust speed (lower = faster).
+  // displayText(text, alignment, speed, pauseTime, effectIn, effectOut)
+  myDisplay.displayText("10.MAX7219 LED Dot Matrix", PA_CENTER, 50, 0, PA_SCROLL_LEFT, PA_SCROLL_LEFT);
+}
+
+void loop() {
+  if (myDisplay.displayAnimate()) {
+    myDisplay.displayReset();
+  }
+}

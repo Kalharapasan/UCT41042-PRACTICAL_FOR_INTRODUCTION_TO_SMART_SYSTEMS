@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "author": "Pasan Kalhara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -62.36, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -46.5, "left": 101.5, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v182.4", "h-249.6", "v-28.8" ] ],
+    [ "esp:GND.1", "ultrasonic1:GND", "black", [ "h-47.85", "v96", "h345.6" ] ],
+    [ "esp:5", "ultrasonic1:TRIG", "blue", [ "h0" ] ],
+    [ "esp:18", "ultrasonic1:ECHO", "green", [ "h153.6" ] ]
+  ],
+  "dependencies": {}
+}

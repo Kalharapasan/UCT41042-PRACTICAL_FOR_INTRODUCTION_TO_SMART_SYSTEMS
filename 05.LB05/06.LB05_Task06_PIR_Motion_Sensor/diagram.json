@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "author": "Pasan Kalhara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 9.6, "left": -62.36, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -24.8, "left": 146.22, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pir1:VCC", "esp:3V3", "red", [ "v19.2", "h-38.4", "v-96", "h-220.8", "v9.6" ] ],
+    [ "esp:GND.2", "pir1:GND", "black", [ "v0", "h76.8", "v124.8", "h96" ] ],
+    [ "pir1:OUT", "esp:5", "blue", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

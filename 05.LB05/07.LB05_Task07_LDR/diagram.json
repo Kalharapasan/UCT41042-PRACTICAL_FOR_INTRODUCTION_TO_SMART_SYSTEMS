@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "author": "Pasan Kalhara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": 110.44, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 41.6,
+      "left": -143.2,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h9.6", "v-28.8" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h57.6", "v76.4" ] ],
+    [ "ldr1:DO", "esp:34", "blue", [ "h28.8", "v-19.8", "h9.6" ] ]
+  ],
+  "dependencies": {}
+}
